@@ -1,12 +1,13 @@
-mixin createCarouselItem(index, placeName, placeCode, forecastData, active)
+mixin createCarouselItem(index, forecast, active)
   .carousel-item(data-bs-interval='4000', class=active)
     .card.mx-auto(style='width: 500px')
       .card-header.text-light.bg-secondary.fs-2
-        | #{placeName}
+        | #{forecast.name}
       .card-body
-        h5.card-title= forecastData.conditionCode
-        p.card-text Temperature #{forecastData.airTemperature}, Humidity #{forecastData.relativeHumidity}, Wind Speed #{forecastData.windSpeed}
-        a.btn.btn-outline-primary.fs-6(href='/weatherapi/forecast/#{placeCode}')> Full Forecast
+        h5.card-title= forecast.forecastData.conditionCode
+        p.card-text Date: #{forecast.forecastData.forecastDateTimeLocal}
+        p.card-text Temperature #{forecast.forecastData.airTemperature}, Humidity #{forecast.forecastData.relativeHumidity}, Wind Speed #{forecast.forecastData.windSpeed}
+        a.btn.btn-outline-primary.fs-6(href='/weatherapi/forecast/#{forecast.code}')> Full Forecast
 
 
 #carouselExampleSlidesOnly.carousel.slide.mt-5(data-bs-ride='carousel')
@@ -14,6 +15,6 @@ mixin createCarouselItem(index, placeName, placeCode, forecastData, active)
     if forecasts.length
       for forecast, i in forecasts
         if i == 0
-          +createCarouselItem(i, forecast.name, forecast.code, forecast.forecastData, 'active')
+          +createCarouselItem(i, forecast, 'active')
         else
-          +createCarouselItem(i, forecast.name, forecast.code, forecast.forecastData)
+          +createCarouselItem(i, forecast)
