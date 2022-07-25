@@ -1,7 +1,7 @@
 extends ./includes/layout
 
 block content
-  h1.mt-3 #{forecast.place.name} forecast
+  h1.mt-3 #{forecast.place.name}
   - var days = forecast.groupedTimestamps
   #accordionForecastDay.accordion.mt-3
     for day, index in days

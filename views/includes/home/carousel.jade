@@ -4,9 +4,9 @@ mixin createCarouselItem(index, forecast, active)
       .card-header.text-light.bg-secondary.fs-2
         | #{forecast.name}
       .card-body
-        h5.card-title= forecast.forecastData.conditionCode
-        p.card-text Date: #{forecast.forecastData.forecastDateTimeLocal}
-        p.card-text Temperature #{forecast.forecastData.airTemperature}, Humidity #{forecast.forecastData.relativeHumidity}, Wind Speed #{forecast.forecastData.windSpeed}
+        h5.card-title #{forecast.forecastData.forecastDateTimeLocal}
+        p.card-text #{forecast.forecastData.conditionCode}
+        p.card-text Temperature #{forecast.forecastData.airTemperature} °C, Humidity #{forecast.forecastData.relativeHumidity} %, Wind Speed #{forecast.forecastData.windSpeed} m/s
         a.btn.btn-outline-primary.fs-6(href='/weatherapi/forecast/#{forecast.code}')> Full Forecast
 
 
