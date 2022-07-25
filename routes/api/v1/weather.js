@@ -10,10 +10,8 @@ router.get('/find/:placeName', async function(req, res, next) {
     try {
         let places = await meteoApi.getPlaces();
         places = places.filter(place => place.name.toLowerCase().includes(req.params.placeName.toLowerCase()));
-
         places = places.slice(0, 10);
 
-        // res.render('cities', {places});
         res.json(places);
     }
     catch (err) {
@@ -26,13 +24,6 @@ router.get('/find/:placeName', async function(req, res, next) {
 router.get('/forecast/:placeCode', async function(req, res, next) {
     try {
         let forecast = await meteoApi.getPlaceForecast(req.params.placeCode);
-        console.log(forecast);
-
-        for (let i = 0; i < forecast.forecastTimestamps.length; i++) {
-            forecast.forecastTimestamps[i]['forecastDateTimeLocal'] = helpers.getLocalDateTimeFromUTC(forecast.forecastTimestamps[i]['forecastTimeUtc']);
-            forecast.forecastTimestamps[i]['forecastDate'] = forecast.forecastTimestamps[i]['forecastDateTimeLocal'].split(' ')[0];
-            forecast.forecastTimestamps[i]['forecastTimeLocal'] = forecast.forecastTimestamps[i]['forecastDateTimeLocal'].split(' ')[1].toLocaleString();
-        }
 
         forecast['groupedTimestamps'] = helpers.groupForecastsByDays(forecast.forecastTimestamps);
 
