@@ -41,6 +41,6 @@ Data by Meteo.lt API (Lithuanian Hydrometeorological Service) is used for this a
 
 ### View the app
 
-Open htp://localhost:3000
+Open http://localhost:3000
 
   
