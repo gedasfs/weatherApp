@@ -9,7 +9,7 @@ mixin createCarouselItem(index, placeName, placeCode, forecastData, active)
         a.btn.btn-outline-primary.fs-6(href='/weatherapi/forecast/#{placeCode}')> Full Forecast
 
 
-#carouselExampleSlidesOnly.carousel.slide(data-bs-ride='carousel')
+#carouselExampleSlidesOnly.carousel.slide.mt-5(data-bs-ride='carousel')
   .carousel-inner
     if forecasts.length
       for forecast, i in forecasts
