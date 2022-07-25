@@ -1,0 +1,27 @@
+extends ./includes/layout
+
+block content
+  h1 #{forecast.place.name} forecast
+  table.mt-3.table.table-striped
+    thead 
+      tr 
+        th.col Time 
+        th.col Condition 
+        th.col Temperature  
+        th.col Wind speed  
+        th.col Humidity 
+        th.col Precipitation 
+    tbody
+      if forecast.forecastTimestamps && forecast.forecastTimestamps.length 
+        for timeStamp in forecast.forecastTimestamps
+          tr
+            td(scope='row')= timeStamp.forecastTimeLocal
+            td= timeStamp.conditionCode
+            td #{timeStamp.airTemperature} °C
+            td #{timeStamp.windSpeed} m/s
+            td #{timeStamp.relativeHumidity} %
+            td #{timeStamp.totalPrecipitation} mm/h
+
+
+      
+    

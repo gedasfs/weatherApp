@@ -1,0 +1,40 @@
+{
+  "name": "weatherapp",
+  "version": "0.0.1",
+  "private": true,
+  "description": "weather App based on Meteo.lt API",
+  "main": "app.js",
+  "author": "gedas.fs@gmail.com",
+  "license": "",
+  "scripts": {
+    "start": "node ./bin/www",
+    "server:prod": "node_modules/.bin/cross-env NODE_ENV=production node ./bin/www",
+    "server:dev": "node_modules/.bin/cross-env NODE_ENV=development node_modules/.bin/nodemon ./bin/www",
+    "assets:dev": "npm run assets:development",
+    "assets:development": "mix",
+    "assets:watch": "mix watch",
+    "assets:prod": "npm run assets:production",
+    "assets:production": "mix --production",
+    "build-and-start": "npm run assets:production && npm run start"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bootstrap": "^5.2.0",
+    "cookie-parser": "~1.4.4",
+    "cross-env": "^7.0.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "lodash": "^4.17.21",
+    "morgan": "~1.9.1",
+    "weathericons": "^2.1.0"
+  },
+  "devDependencies": {
+    "laravel-mix": "^6.0.49",
+    "nodemon": "^2.0.19",
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.53.0",
+    "sass-loader": "^13.0.2"
+  }
+}

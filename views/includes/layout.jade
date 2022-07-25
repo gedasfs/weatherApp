@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title='WeatherApp'
+    link(rel='stylesheet', href='/css/weathericons/icons.css')
+    link(rel='stylesheet', href='/css/app.css')
+  body
+    .container-lg
+      include navbar.html
+      
+      main 
+        block content
+
+    script(type='module', src='/js/bootstrap.js')
+    script(type='module', src='/js/app.js')

@@ -1,0 +1,16 @@
+extends ./includes/layout
+
+block content
+  div.mt-3
+    .input-group.mb-3.d-flex.mt-4.mt-lg-0
+      span#basic-addon1.input-group-text.fs-nav-item &#128269
+      input#place-code(type='hidden')
+      input#place-input.form-control.me-2.fs-nav-item(type='search' placeholder='Enter city name')
+      //- <button class="btn btn-outline-success fs-nav-item" type="submit">Search</button>
+    #place-suggestions.list-group.list-group-flush
+
+  h3.mt-5 Places
+  if MAJOR_CITIES_CODES && MAJOR_CITIES_CODES.length
+    .d-flex.flex-wrap.justify-content-between
+      for city in MAJOR_CITIES_CODES
+        a.btn.btn-outline-secondary.fs-nav-item.flex-grow-1.m-2(href='/weatherapi/forecast/#{city.code}')= city.name

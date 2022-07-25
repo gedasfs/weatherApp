@@ -1,0 +1,19 @@
+mixin createCarouselItem(index, placeName, placeCode, forecastData, active)
+  .carousel-item(data-bs-interval='4000', class=active)
+    .card.mx-auto(style='width: 500px')
+      .card-header.text-light.bg-secondary.fs-2
+        | #{placeName}
+      .card-body
+        h5.card-title= forecastData.conditionCode
+        p.card-text Temperature #{forecastData.airTemperature}, Humidity #{forecastData.relativeHumidity}, Wind Speed #{forecastData.windSpeed}
+        a.btn.btn-outline-primary.fs-6(href='/weatherapi/forecast/#{placeCode}')> Full Forecast
+
+
+#carouselExampleSlidesOnly.carousel.slide(data-bs-ride='carousel')
+  .carousel-inner
+    if forecasts.length
+      for forecast, i in forecasts
+        if i == 0
+          +createCarouselItem(i, forecast.name, forecast.code, forecast.forecastData, 'active')
+        else
+          +createCarouselItem(i, forecast.name, forecast.code, forecast.forecastData)
