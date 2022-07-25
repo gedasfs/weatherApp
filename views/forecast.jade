@@ -1,27 +1,58 @@
 extends ./includes/layout
 
 block content
-  h1 #{forecast.place.name} forecast
-  table.mt-3.table.table-striped
-    thead 
-      tr 
-        th.col Time 
-        th.col Condition 
-        th.col Temperature  
-        th.col Wind speed  
-        th.col Humidity 
-        th.col Precipitation 
-    tbody
-      if forecast.forecastTimestamps && forecast.forecastTimestamps.length 
-        for timeStamp in forecast.forecastTimestamps
-          tr
-            td(scope='row')= timeStamp.forecastTimeLocal
-            td= timeStamp.conditionCode
-            td #{timeStamp.airTemperature} °C
-            td #{timeStamp.windSpeed} m/s
-            td #{timeStamp.relativeHumidity} %
-            td #{timeStamp.totalPrecipitation} mm/h
-
-
-      
-    
+  h1.mt-3 #{forecast.place.name} forecast
+  - var days = forecast.groupedTimestamps
+  #accordionForecastDay.accordion.mt-3
+    for day, index in days
+      if index == 0 
+        .accordion-item
+          h2.accordion-header(id='heading#{index}')
+            button.accordion-button(type='button' data-bs-toggle='collapse' data-bs-target='#collapse#{index}' aria-expanded='true' aria-controls='collapse#{index}')
+              | #{day[0].forecastDate}
+          .accordion-collapse.collapse.show(id='collapse#{index}', aria-labelledby='heading#{index}' data-bs-parent='#accordionForecastDay')
+            .accordion-body
+              table.table.table-striped
+                thead 
+                  tr 
+                    th.col Time 
+                    th.col Condition 
+                    th.col Temperature  
+                    th.col Wind speed  
+                    th.col Humidity 
+                    th.col Precipitation 
+                tbody 
+                  for timeStamp in day
+                    tr
+                      td(scope='row')= timeStamp.forecastTimeLocal
+                      td= timeStamp.conditionCode
+                      td #{timeStamp.airTemperature} °C
+                      td #{timeStamp.windSpeed} m/s
+                      td #{timeStamp.relativeHumidity} %
+                      td #{timeStamp.totalPrecipitation} mm/h
+      else 
+        .accordion-item
+          h2.accordion-header(id='heading#{index}')
+            button.accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#collapse#{index}' aria-expanded='false' aria-controls='collapse#{index}')
+              | #{day[0].forecastDate}
+          .accordion-collapse.collapse(id='collapse#{index}', aria-labelledby='heading#{index}' data-bs-parent='#accordionForecastDay')
+          
+            .accordion-body
+              table.table.table-striped
+                thead 
+                  tr 
+                    th.col Time 
+                    th.col Condition 
+                    th.col Temperature  
+                    th.col Wind speed  
+                    th.col Humidity 
+                    th.col Precipitation 
+                tbody 
+                  for timeStamp in day
+                    tr
+                      td(scope='row')= timeStamp.forecastTimeLocal
+                      td= timeStamp.conditionCode
+                      td #{timeStamp.airTemperature} °C
+                      td #{timeStamp.windSpeed} m/s
+                      td #{timeStamp.relativeHumidity} %
+                      td #{timeStamp.totalPrecipitation} mm/h

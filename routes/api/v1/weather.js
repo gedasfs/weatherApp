@@ -29,8 +29,12 @@ router.get('/forecast/:placeCode', async function(req, res, next) {
         console.log(forecast);
 
         for (let i = 0; i < forecast.forecastTimestamps.length; i++) {
-            forecast.forecastTimestamps[i]['forecastTimeLocal'] = helpers.getLocalDateTimeFromUTC(forecast.forecastTimestamps[i]['forecastTimeUtc']);
+            forecast.forecastTimestamps[i]['forecastDateTimeLocal'] = helpers.getLocalDateTimeFromUTC(forecast.forecastTimestamps[i]['forecastTimeUtc']);
+            forecast.forecastTimestamps[i]['forecastDate'] = forecast.forecastTimestamps[i]['forecastDateTimeLocal'].split(' ')[0];
+            forecast.forecastTimestamps[i]['forecastTimeLocal'] = forecast.forecastTimestamps[i]['forecastDateTimeLocal'].split(' ')[1].toLocaleString();
         }
+
+        forecast['groupedTimestamps'] = helpers.groupForecastsByDays(forecast.forecastTimestamps);
 
         res.render('forecast', {forecast});
         // res.json(forecast);
