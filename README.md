@@ -12,7 +12,7 @@ Built using:
  - [Sass](https://sass-lang.com/)
  - [weathericons](https://erikflowers.github.io/weather-icons/)
 
-Data by Meteo.lt API(https://api.meteo.lt/) (Lithuanian Hydrometeorological Service) is used for this app.
+Data by Meteo.lt [API](https://api.meteo.lt/) (Lithuanian Hydrometeorological Service) is used for this app.
 
 ---
 
