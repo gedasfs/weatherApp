@@ -51,7 +51,7 @@ class MeteoApi {
     }
 
     getTimeFromDateTime = function(dateTime) {
-        return moment(dateTime).format('HH:mm:ss');
+        return moment(dateTime).format('HH:mm');
     }
 
     addLocalDateTimes(data) {
