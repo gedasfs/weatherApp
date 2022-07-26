@@ -24,7 +24,7 @@ mixin createCarouselItem(index, forecast, active)
               span.text-primary.align-self-center.condition-icon(class='#{forecast.forecastData.iconClassname}')
           .row
             .col.text-center
-              a.btn.btn-outline-primary.mt-5(href='/weatherapi/forecast/#{forecast.code}') > Full Forecast
+              a.btn.btn-secondary.mt-5.px-5(href='/weatherapi/forecast/#{forecast.code}') > Full Forecast
 
 
 #carouselExampleSlidesOnly.carousel.slide.mt-5(data-bs-ride='carousel')
