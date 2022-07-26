@@ -2,15 +2,15 @@
 Built for CAFS2
 
 Built using:
- - [NodeJS](https://nodejs.org/en/)
- - [Express](https://expressjs.com/)
- - [Axios](https://axios-http.com/)
- - [Laravel-Mix](https://laravel-mix.com/)
- - [Bootstrap](https://getbootstrap.com/)
- - [MomentJS](https://momentjs.com/)
- - [Jade](https://jade-lang.com/)
- - [Sass](https://sass-lang.com/)
- - [weathericons](https://erikflowers.github.io/weather-icons/)
+ - [NodeJS](https://nodejs.org/en/){:target="_blank"}
+ - [Express](https://expressjs.com/){:target="_blank"}
+ - [Axios](https://axios-http.com/){:target="_blank"}
+ - [Laravel-Mix](https://laravel-mix.com/){:target="_blank"}
+ - [Bootstrap](https://getbootstrap.com/){:target="_blank"}
+ - [MomentJS](https://momentjs.com/){:target="_blank"}
+ - [Jade](https://jade-lang.com/){:target="_blank"}
+ - [Sass](https://sass-lang.com/){:target="_blank"}
+ - [weathericons](https://erikflowers.github.io/weather-icons/){:target="_blank"}
 
 Data by Meteo.lt API (Lithuanian Hydrometeorological Service) is used for this app.
 
