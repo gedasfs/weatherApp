@@ -4,7 +4,7 @@ const placeInput = document.querySelector('#place-input');
 const placeCodeHidden = document.querySelector('#place-code');
 const placeSuggestions = document.querySelector('#place-suggestions');
 
-placeInput.addEventListener('input', debounce(function() {
+placeInput?.addEventListener('input', debounce(function() {
     if (this.value!== '') {
         fetch(`weatherapi/find/${this.value}`)
         .then(res => res.json())
