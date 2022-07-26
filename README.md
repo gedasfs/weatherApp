@@ -5,7 +5,7 @@ Built using:
  - [NodeJS](https://nodejs.org/en/)
  - [Express](https://expressjs.com/)
  - [Axios](https://axios-http.com/)
- - [Laravel-Mix](https://laravel-mix.com/
+ - [Laravel-Mix](https://laravel-mix.com/)
  - [Bootstrap](https://getbootstrap.com/)
  - [MomentJS](https://momentjs.com/)
  - [Jade](https://jade-lang.com/)
