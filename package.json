@@ -11,8 +11,8 @@
     "url": "git+https://github.com/gedasfs/weatherApp.git"
   },
   "scripts": {
-    "server:prod": "node_modules/.bin/cross-env NODE_ENV=production node ./bin/www",
-    "server:dev": "node_modules/.bin/cross-env NODE_ENV=development node_modules/.bin/nodemon ./bin/www",
+    "server:prod": "npx cross-env NODE_ENV=production node ./bin/www",
+    "server:dev": "npx cross-env NODE_ENV=development nodemon ./bin/www",
     "assets:dev": "npm run assets:development",
     "assets:development": "mix",
     "assets:watch": "mix watch",
