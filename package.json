@@ -6,6 +6,10 @@
   "main": "app.js",
   "author": "gedas.fs@gmail.com",
   "license": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gedasfs/weatherApp.git"
+  },
   "scripts": {
     "server:prod": "node_modules/.bin/cross-env NODE_ENV=production node ./bin/www",
     "server:dev": "node_modules/.bin/cross-env NODE_ENV=development node_modules/.bin/nodemon ./bin/www",
