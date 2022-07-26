@@ -7,7 +7,6 @@
   "author": "gedas.fs@gmail.com",
   "license": "",
   "scripts": {
-    "start": "node ./bin/www",
     "server:prod": "node_modules/.bin/cross-env NODE_ENV=production node ./bin/www",
     "server:dev": "node_modules/.bin/cross-env NODE_ENV=development node_modules/.bin/nodemon ./bin/www",
     "assets:dev": "npm run assets:development",
@@ -15,7 +14,7 @@
     "assets:watch": "mix watch",
     "assets:prod": "npm run assets:production",
     "assets:production": "mix --production",
-    "build-and-start": "npm run assets:production && npm run start"
+    "build-and-start": "npm run assets:production && npm run server:prod"
   },
   "dependencies": {
     "axios": "^0.27.2",
