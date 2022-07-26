@@ -25,5 +25,54 @@ const groupForecastsByDays = function(timestamps) {
   return timestamps;
 }
 
+const getClassnameFromCondition = function(conditionCode) {
+  let className = 'wi wi-na';
 
-module.exports = {getReqForecastInfo, groupForecastsByDays};
+  switch (conditionCode) {
+    case 'clear':
+      className = 'wi wi-day-sunny';
+      break;
+    case 'isolated-clouds':
+      className = 'wi wi-day-sunny-overcast';
+      break;
+    case 'scattered-clouds':
+      className = 'wi wi-day-cloudy-high';
+      break;
+    case 'overcast':
+      className = 'wi wi-cloudy';
+      break;
+    case 'light-rain':
+      className = 'wi wi-day-sprinkle';
+      break;
+    case 'moderate-rain':
+      className = 'wi wi-showers';
+      break;
+    case 'heavy-rain':
+      className = 'wi wi-rain';
+      break;
+    case 'sleet':
+      className = 'wi wi-sleet';
+      break;
+    case 'light-snow':
+      className = 'wi wi-day-snow';
+      break;
+    case 'moderate-snow':
+      className = 'wi wi-snow';
+      break;
+    case 'heavy-snow':
+      className = 'wi wi-snow-wind';
+      break;
+    case 'fog':
+      className = 'wi wi-fog';
+      break;
+    case 'na':
+    default:
+      className = 'wi wi-na';
+      break;
+  }
+
+  return className;
+}
+
+
+module.exports = {getReqForecastInfo, groupForecastsByDays, getClassnameFromCondition};

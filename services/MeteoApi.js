@@ -1,5 +1,6 @@
 const axios = require('axios');
 const moment = require('moment');
+const helpers = require('./helpers');
 const API_BASE_URL = 'https://api.meteo.lt/v1/';
 const API_BASE_PLACES = API_BASE_URL + 'places/';
 
@@ -23,10 +24,15 @@ class MeteoApi {
         return axios.get(apiUrlPlace)
             .then(response => response.data)    //returns parsed json (= object)
             .then(data => {
-
                 // Adding local dateTimes to original data
                 data = this.addLocalDateTimes(data);
                 
+                return data;
+            })
+            .then(data => {
+                // adding weather icons class names to original data
+                data = this.addIconsClassNames(data);
+
                 return data;
             })
             .catch(err => {
@@ -55,6 +61,14 @@ class MeteoApi {
             timeStamp.forecastDateTimeLocal = this.getLocalDateTimeFromUTC(timeStamp.forecastTimeUtc);
             timeStamp.forecastDate = this.getDateFromDateTime(timeStamp.forecastDateTimeLocal);
             timeStamp.forecastTimeLocal = this.getTimeFromDateTime(timeStamp.forecastDateTimeLocal);
+        });
+
+        return data;
+    }
+
+    addIconsClassNames = function(data) {
+        data.forecastTimestamps.forEach(timeStamp => {
+            timeStamp.iconClassname = helpers.getClassnameFromCondition(timeStamp.conditionCode);
         });
 
         return data;

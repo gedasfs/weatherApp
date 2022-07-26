@@ -16,20 +16,20 @@ block content
                 thead 
                   tr 
                     th.col Time 
-                    th.col Condition 
                     th.col Temperature  
-                    th.col Wind speed  
                     th.col Humidity 
                     th.col Precipitation 
+                    th.col Wind speed  
                 tbody 
                   for timeStamp in day
                     tr
                       td(scope='row')= timeStamp.forecastTimeLocal
-                      td= timeStamp.conditionCode
-                      td #{timeStamp.airTemperature} °C
-                      td #{timeStamp.windSpeed} m/s
+                      td 
+                        span.me-3(class= timeStamp.iconClassname) 
+                        | #{timeStamp.airTemperature} °C
                       td #{timeStamp.relativeHumidity} %
                       td #{timeStamp.totalPrecipitation} mm/h
+                      td #{timeStamp.windSpeed} m/s
       else 
         .accordion-item
           h2.accordion-header(id='heading#{index}')
@@ -42,17 +42,17 @@ block content
                 thead 
                   tr 
                     th.col Time 
-                    th.col Condition 
                     th.col Temperature  
-                    th.col Wind speed  
                     th.col Humidity 
                     th.col Precipitation 
+                    th.col Wind speed  
                 tbody 
                   for timeStamp in day
                     tr
                       td(scope='row')= timeStamp.forecastTimeLocal
-                      td= timeStamp.conditionCode
-                      td #{timeStamp.airTemperature} °C
-                      td #{timeStamp.windSpeed} m/s
+                      td 
+                        span.me-3(class= timeStamp.iconClassname) 
+                        | #{timeStamp.airTemperature} °C
                       td #{timeStamp.relativeHumidity} %
                       td #{timeStamp.totalPrecipitation} mm/h
+                      td #{timeStamp.windSpeed} m/s
