@@ -7,7 +7,7 @@ const meteoApi = new meteoApiServices();
 const helpers = require('./../services/helpers');
 
 
-const DEFAULT_CITIES = ['vilnius', 'kaunas', 'klaipeda'];
+const DEFAULT_CITIES = ['vilnius', 'kaunas', 'klaipeda', 'siauliai', 'panevezys'];
 
 
 router.get('/', async function(req, res, next) {
