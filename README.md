@@ -35,7 +35,7 @@ Data by Meteo.lt API (Lithuanian Hydrometeorological Service) is used for this a
 
 ### Development: build and run
 
-`$ npm run assets:dev`
+`$ npm run assets:dev`, then
 `$ npm run server:dev`
 
 
