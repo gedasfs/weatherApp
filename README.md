@@ -7,9 +7,10 @@ Built using:
  - [Axios](https://axios-http.com/)
  - [Laravel-Mix](https://laravel-mix.com/)
  - [Bootstrap](https://getbootstrap.com/)
- - [Bootstrap](https://getbootstrap.com/)
+ - [MomentJS](https://momentjs.com/)
  - [Jade](https://jade-lang.com/)
  - [Sass](https://sass-lang.com/)
+ - [weathericons](https://erikflowers.github.io/weather-icons/)
 
 Data by Meteo.lt API (Lithuanian Hydrometeorological Service) is used for this app.
 
@@ -35,7 +36,10 @@ Data by Meteo.lt API (Lithuanian Hydrometeorological Service) is used for this a
 
 ### Development: build and run
 
-`$ npm run assets:dev`, then
+build app
+`$ npm run assets:dev` or `$ npm run assets:watch`,
+
+then start server
 `$ npm run server:dev`
 
 
