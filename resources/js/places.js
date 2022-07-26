@@ -13,15 +13,11 @@ placeInput?.addEventListener('input', debounce(function() {
 
             for (let place of places) {
                 let link = document.createElement('a');
-                link.style.cursor = 'pointer';
                 
-
+                link.setAttribute('href', `/weatherapi/forecast/${place.code}`);
                 link.classList.add('list-group-item', 'list-group-item-action', 'fs-nav-item');
                 link.innerText = `${place.name} (${place.administrativeDivision})`;
                 placeSuggestions.appendChild(link);
-                link.addEventListener('click', () => {
-                    window.location = `/weatherapi/forecast/${place.code}`;
-                });
             }
         }); 
     }
