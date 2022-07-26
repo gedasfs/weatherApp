@@ -14,6 +14,7 @@ const getReqForecastInfo = function (fullForecast) {
 
   // Selects the next closest forecast data from fullForecast
   forecast.forecastData = fullForecast.forecastTimestamps[hoursDiff];
+  forecast.forecastData.airTemperature = Math.round(forecast.forecastData.airTemperature);
   
   return forecast;
 }

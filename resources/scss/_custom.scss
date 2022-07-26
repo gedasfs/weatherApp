@@ -8,6 +8,34 @@ $carousel-transition-duration: 1s;
     font-size: 2.5rem !important;
 }
 
+.forecast-table {
+    font-size: 2rem;
+}
+
+.accordion-button p {
+    font-size: 2.2rem;
+}
+
+.card {
+    width: 600px;
+
+    .place-name {
+        font-size: 3.5rem;
+    }
+    .temp {
+        font-size: 7rem;
+    }
+    .condition-icon {
+        font-size: 7rem;
+    }
+    .condition {
+        font-size: 2.5rem;
+    }
+    .btn {
+        font-size: 2.5rem;
+    }
+}
+
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {}
 
@@ -22,6 +50,33 @@ $carousel-transition-duration: 1s;
 
     .fs-nav-item {
         font-size: 1.2rem !important;
+    }
+
+    .forecast-table {
+        font-size: 1rem;
+    }
+    .accordion-button p {
+        font-size: 1.2rem;
+    }
+
+    .card {
+        width: 400px;
+
+        .place-name {
+            font-size: 2rem;
+        }
+        .temp {
+            font-size: 5rem;
+        }
+        .condition-icon {
+            font-size: 4rem;
+        }
+        .condition {
+            font-size: 1.25rem;
+        }
+        .btn {
+            font-size: 1rem;
+        }
     }
 }
 

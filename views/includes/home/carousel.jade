@@ -1,13 +1,30 @@
 mixin createCarouselItem(index, forecast, active)
   .carousel-item(data-bs-interval='4000', class=active)
-    .card.mx-auto(style='width: 500px')
-      .card-header.text-light.bg-secondary.fs-2
-        p.m-0 #{forecast.name}
-      .card-body
-        h5.card-title #{forecast.forecastData.forecastDateTimeLocal}
-        span(class='#{forecast.forecastData.iconClassname}')
-        p.card-text Temperature #{forecast.forecastData.airTemperature} °C, Humidity #{forecast.forecastData.relativeHumidity} %, Wind Speed #{forecast.forecastData.windSpeed} m/s
-        a.btn.btn-outline-primary.fs-6(href='/weatherapi/forecast/#{forecast.code}')> Full Forecast
+    .card.mx-auto
+      .card-header.text-light.bg-secondary
+        p.m-0.place-name #{forecast.name}
+      .card-body.bg-light
+        //- h5.card-title #{forecast.forecastData.forecastDateTimeLocal}
+        .card-text
+          .row.text-center
+            .col
+              span.temp #{forecast.forecastData.airTemperature} °C
+          .row.mx-2.mx-lg-3
+            .col.d-flex.justify-content-between
+              .mt-3
+                p.m-0.text-secondary.condition
+                  span.me-3.mt-1.wi.wi-strong-wind
+                  | #{forecast.forecastData.windSpeed} m/s
+                p.m-0.text-secondary.condition
+                  span.me-3.mt-1.wi.wi-humidity
+                  | #{forecast.forecastData.relativeHumidity} %
+                p.m-0.text-secondary.condition
+                  span.me-3.mt-1.wi.wi-raindrops
+                  | #{forecast.forecastData.totalPrecipitation} mm/h
+              span.text-primary.align-self-center.condition-icon(class='#{forecast.forecastData.iconClassname}')
+          .row
+            .col.text-center
+              a.btn.btn-outline-primary.mt-5(href='/weatherapi/forecast/#{forecast.code}') > Full Forecast
 
 
 #carouselExampleSlidesOnly.carousel.slide.mt-5(data-bs-ride='carousel')

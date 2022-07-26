@@ -9,10 +9,10 @@ block content
         .accordion-item
           h2.accordion-header(id='heading#{index}')
             button.accordion-button(type='button' data-bs-toggle='collapse' data-bs-target='#collapse#{index}' aria-expanded='true' aria-controls='collapse#{index}')
-              | #{day[0].forecastDate}
+              p.m-0 #{day[0].forecastDate}
           .accordion-collapse.collapse.show(id='collapse#{index}', aria-labelledby='heading#{index}' data-bs-parent='#accordionForecastDay')
             .accordion-body
-              table.table.table-striped
+              table.table.table-striped.forecast-table
                 thead 
                   tr 
                     th.col Time 
@@ -25,7 +25,7 @@ block content
                     tr
                       td(scope='row')= timeStamp.forecastTimeLocal
                       td 
-                        span.me-3(class= timeStamp.iconClassname) 
+                        span.me-3.text-primary(class= timeStamp.iconClassname) 
                         | #{timeStamp.airTemperature} °C
                       td #{timeStamp.relativeHumidity} %
                       td #{timeStamp.totalPrecipitation} mm/h
@@ -34,11 +34,11 @@ block content
         .accordion-item
           h2.accordion-header(id='heading#{index}')
             button.accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#collapse#{index}' aria-expanded='false' aria-controls='collapse#{index}')
-              | #{day[0].forecastDate}
+              p.m-0 #{day[0].forecastDate}
           .accordion-collapse.collapse(id='collapse#{index}', aria-labelledby='heading#{index}' data-bs-parent='#accordionForecastDay')
           
             .accordion-body
-              table.table.table-striped
+              table.table.table-striped.forecast-table
                 thead 
                   tr 
                     th.col Time 
@@ -51,7 +51,7 @@ block content
                     tr
                       td(scope='row')= timeStamp.forecastTimeLocal
                       td 
-                        span.me-3(class= timeStamp.iconClassname) 
+                        span.me-3.text-primary(class= timeStamp.iconClassname) 
                         | #{timeStamp.airTemperature} °C
                       td #{timeStamp.relativeHumidity} %
                       td #{timeStamp.totalPrecipitation} mm/h
