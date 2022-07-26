@@ -13,24 +13,15 @@ placeInput.addEventListener('input', debounce(function() {
 
             for (let place of places) {
                 let link = document.createElement('a');
-
-                link.addEventListener('click', () => {
-                    // link.classList.add('active');
-
-                    // setTimeout(() => {
-                    //     placeSuggestions.innerHTML = '';
-                    // }, 100);
-
-                    // placeInput.value = place.name;
-                    // placeCodeHidden.value = place.code;
-
-                    window.location = `/weatherapi/forecast/${place.code}`;
-
-                });
+                link.style.cursor = 'pointer';
+                
 
                 link.classList.add('list-group-item', 'list-group-item-action', 'fs-nav-item');
                 link.innerText = `${place.name} (${place.administrativeDivision})`;
                 placeSuggestions.appendChild(link);
+                link.addEventListener('click', () => {
+                    window.location = `/weatherapi/forecast/${place.code}`;
+                });
             }
         }); 
     }
