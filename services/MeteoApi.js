@@ -30,8 +30,9 @@ class MeteoApi {
                 return data;
             })
             .then(data => {
-                // adding weather icons class names to original data
+                // adding weather icons class names and day name to original data
                 data = this.addIconsClassNames(data);
+                data = this.addDayName(data);
 
                 return data;
             })
@@ -69,6 +70,14 @@ class MeteoApi {
     addIconsClassNames = function(data) {
         data.forecastTimestamps.forEach(timeStamp => {
             timeStamp.iconClassname = helpers.getClassnameFromCondition(timeStamp.conditionCode);
+        });
+
+        return data;
+    }
+
+    addDayName(data) {
+        data.forecastTimestamps.forEach(timeStamp => {
+            timeStamp.dayName = moment(timeStamp.forecastDateTimeLocal).format('dddd');
         });
 
         return data;
