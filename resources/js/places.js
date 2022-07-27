@@ -6,7 +6,7 @@ const placeSuggestions = document.querySelector('#place-suggestions');
 
 placeInput?.addEventListener('input', debounce(function() {
     if (this.value!== '') {
-        fetch(`weatherapi/find/${this.value}`)
+        fetch(`weatherapi/cities/${this.value}`)
         .then(res => res.json())
         .then(places => {
             placeSuggestions.innerHTML = '';
@@ -14,7 +14,7 @@ placeInput?.addEventListener('input', debounce(function() {
             for (let place of places) {
                 let link = document.createElement('a');
                 
-                link.setAttribute('href', `/weatherapi/forecast/${place.code}`);
+                link.setAttribute('href', `/weatherapi/forecasts/${place.code}`);
                 link.classList.add('list-group-item', 'list-group-item-action', 'fs-nav-item');
                 link.innerText = `${place.name} (${place.administrativeDivision})`;
                 placeSuggestions.appendChild(link);

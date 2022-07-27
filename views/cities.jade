@@ -13,4 +13,4 @@ block content
   if MAJOR_CITIES_CODES && MAJOR_CITIES_CODES.length
     .d-flex.flex-wrap.justify-content-start
       for city in MAJOR_CITIES_CODES
-        a.btn.btn-outline-secondary.fs-nav-item.m-2(href='/weatherapi/forecast/#{city.code}')= city.name
+        a.btn.btn-outline-secondary.fs-nav-item.m-2(href='/weatherapi/forecasts/#{city.code}')= city.name

@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-const meteoApiServices = require('./../../../services/MeteoApi');
-const meteoApi = new meteoApiServices();
+const MeteoApiServices = require('./../../../services/MeteoApi');
+const meteoApi = new MeteoApiServices();
 
 const helpers = require('../../../helpers/mainHelper');
 
-router.get('/find/:placeName', async function(req, res, next) {
+router.get('/cities/:placeName', async function(req, res, next) {
     try {
         let places = await meteoApi.getPlaces();
         places = places.filter(place => place.name.toLowerCase().includes(req.params.placeName.toLowerCase()));
@@ -21,7 +21,7 @@ router.get('/find/:placeName', async function(req, res, next) {
     
 });
 
-router.get('/forecast/:placeCode', async function(req, res, next) {
+router.get('/forecasts/:placeCode', async function(req, res, next) {
     try {
         let forecast = await meteoApi.getPlaceForecast(req.params.placeCode);
 

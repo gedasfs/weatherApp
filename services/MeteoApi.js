@@ -11,10 +11,9 @@ class MeteoApi {
         return axios.get(API_BASE_PLACES)
             .then(response => response.data)    //returns parsed json
             .catch(err => {
-                // let newError = this.transformResponseError(err);
+                let newError = this.transformResponseError(err);
                 
-                // throw newError;
-                throw err;
+                throw newError;
             });
     };
 
