@@ -4,17 +4,15 @@ const router = express.Router();
 const meteoApiServices = require('./../services/MeteoApi');
 const meteoApi = new meteoApiServices();
 
-const helpers = require('./../services/helpers');
-
-
-const DEFAULT_CITIES = ['vilnius', 'kaunas', 'klaipeda', 'siauliai', 'panevezys'];
+const helpers = require('../helpers/mainHelper');
+const DEFAULT_CITIES_CODES = require('./../configs/defaultCities');
 
 
 router.get('/', async function(req, res, next) {
   try {
     let forecasts = [];
 
-    for await (cityCode of DEFAULT_CITIES) {
+    for await (cityCode of DEFAULT_CITIES_CODES) {
       let fullForecast = await meteoApi.getPlaceForecast(cityCode);
       forecasts.push(helpers.getReqForecastInfo(fullForecast));
     }

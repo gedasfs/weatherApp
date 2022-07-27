@@ -1,6 +1,6 @@
 const axios = require('axios');
 const moment = require('moment');
-const helpers = require('./helpers');
+const helpers = require('../helpers/mainHelper');
 const API_BASE_URL = 'https://api.meteo.lt/v1/';
 const API_BASE_PLACES = API_BASE_URL + 'places/';
 

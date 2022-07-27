@@ -4,7 +4,7 @@ const router = express.Router();
 const meteoApiServices = require('./../../../services/MeteoApi');
 const meteoApi = new meteoApiServices();
 
-const helpers = require('./../../../services/helpers');
+const helpers = require('../../../helpers/mainHelper');
 
 router.get('/find/:placeName', async function(req, res, next) {
     try {
