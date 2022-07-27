@@ -7,17 +7,18 @@ const API_BASE_PLACES = API_BASE_URL + 'places/';
 
 class MeteoApi {
 
-    getPlaces = function() {
+    getPlaces() {
         return axios.get(API_BASE_PLACES)
             .then(response => response.data)    //returns parsed json
             .catch(err => {
-                let newError = this.transformResponseError(err);
+                // let newError = this.transformResponseError(err);
                 
-                throw newError;
+                // throw newError;
+                throw err;
             });
     };
 
-    getPlaceForecast = function(placeCode) {
+    getPlaceForecast (placeCode) {
         let forecastType = 'long-term';
         let apiUrlPlace = API_BASE_PLACES + `${placeCode}/forecasts/${forecastType}/`;
 
@@ -43,15 +44,15 @@ class MeteoApi {
             });
     }
 
-    getLocalDateTimeFromUTC = function(dateTimeStrUTC) {
+    getLocalDateTimeFromUTC(dateTimeStrUTC) {
         return moment.utc(dateTimeStrUTC).local().format('YYYY-MM-DD HH:mm:ss');
     }
 
-    getDateFromDateTime = function(dateTime) {
+    getDateFromDateTime(dateTime) {
         return moment(dateTime).format('YYYY-MM-DD');
     }
 
-    getTimeFromDateTime = function(dateTime) {
+    getTimeFromDateTime(dateTime) {
         return moment(dateTime).format('HH:mm');
     }
 
@@ -67,7 +68,7 @@ class MeteoApi {
         return data;
     }
 
-    addIconsClassNames = function(data) {
+    addIconsClassNames(data) {
         data.forecastTimestamps.forEach(timeStamp => {
             timeStamp.iconClassname = helpers.getClassnameFromCondition(timeStamp.conditionCode);
         });
@@ -83,11 +84,16 @@ class MeteoApi {
         return data;
     }
 
-    transformResponseError = function(error) {
+    transformResponseError(error) {
         let newError = new Error();
-    
-        newError.status = error.status;
-        newError.message = `Error name: ${error.name}. Message: ${error.message}`;
+
+        if (error.name == 'AxiosError') {
+            newError.status = error.status;
+            newError.message = error.message;
+        } else {
+            newError.status = 404;
+            newError.message = 'Not Found.';
+        }
     
         return newError;
     }
